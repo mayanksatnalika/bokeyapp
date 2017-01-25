@@ -3,7 +3,9 @@ from os.path import dirname, join
 import numpy as np
 import pandas.io.sql as psql
 import sqlite3 as sql
+desc = Div(text=open(join(dirname(__file__), "description.html")).read(), width=800)
 
+'''
 from bokeh.plotting import figure
 from bokeh.layouts import layout, widgetbox
 from bokeh.models import ColumnDataSource, HoverTool, Div
@@ -34,7 +36,6 @@ axis_map = {
     "Year": "Year",
 }
 
-desc = Div(text=open(join(dirname(__file__), "description.html")).read(), width=800)
 
 # Create Input controls
 reviews = Slider(title="Minimum number of reviews", value=80, start=10, end=300, step=10)
@@ -110,12 +111,10 @@ sizing_mode = 'scale_width'
 # 'scale_width' also looks nice with this example
 
 inputs = widgetbox(*controls, sizing_mode=sizing_mode)
-l = layout([
-    [desc],
-    [inputs, p],
-], sizing_mode=sizing_mode)
+'''
+l = layout([[desc]]) 
 
-update()  # initial load of the data
+#update()  # initial load of the data
 
 curdoc().add_root(l)
 curdoc().title = "Movies"
